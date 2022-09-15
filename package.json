@@ -1,0 +1,22 @@
+{
+  "name": "docker-basics-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sasha-who/docker-basics-project.git"
+  },
+  "author": "sasha-who",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sasha-who/docker-basics-project/issues"
+  },
+  "homepage": "https://github.com/sasha-who/docker-basics-project#readme",
+  "dependencies": {
+    "express": "4.18.1"
+  }
+}
