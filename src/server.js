@@ -35,6 +35,14 @@ const dbName = process.env.DB_NAME;
     res.status(HttpCode.OK).sendFile(path.join(__dirname, "static/index.html"));
   });
 
+  app.post("/note", (req, res) => {
+    const { text } = req.body;
+
+    const newNote = db.collection(NOTES_COLLECTION_NAME).insertOne({ text, date: new Date() });
+
+    return res.status(HttpCode.OK).send(newNote._id);
+  });
+
   app.get("/notes", async (_req, res) => {
     const cursor = db.collection(NOTES_COLLECTION_NAME).find({});
     const notes = await cursor.toArray()
