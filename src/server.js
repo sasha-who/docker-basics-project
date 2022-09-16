@@ -5,6 +5,10 @@ const MongoClient = require("mongodb").MongoClient;
 
 const NOTES_COLLECTION_NAME = "notes";
 
+const HttpCode = {
+  OK: 200
+}
+
 dotenv.config();
 
 const port = process.env.PORT || 3000;
@@ -28,13 +32,13 @@ const dbName = process.env.DB_NAME;
   server.on("error", (err) => console.error(err));
 
   app.get("/", (_req, res) => {
-    res.sendFile(path.join(__dirname, "static/index.html"));
+    res.status(HttpCode.OK).sendFile(path.join(__dirname, "static/index.html"));
   });
 
   app.get("/notes", async (_req, res) => {
     const cursor = db.collection(NOTES_COLLECTION_NAME).find({});
     const notes = await cursor.toArray()
 
-    return res.send(notes);
+    return res.status(HttpCode.OK).send(notes);
   });
 })();
