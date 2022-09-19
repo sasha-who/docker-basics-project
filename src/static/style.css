@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  background-color: #E3D2F4;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+.text-input-container {
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+}
+
+.text-input {
+  width: 220px;
+  min-height: 20px;
+}
+
+.add-button {
+  width: 85px;
+  background-color: #FFFFFF;
+}
+
+.text-input, .add-button {
+  border-color: #9C5BDE;
+  border-width: 1px;
+}
+
+.notes-container {
+  width: 320px;
+  text-align: left;
+}
