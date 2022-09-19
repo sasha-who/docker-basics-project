@@ -6,6 +6,25 @@ const createNoteElement = (note) => {
   notesContainerElement.append(newNoteElement);
 };
 
+const submitNoteHandler = async () => {
+  const inputElement = document.getElementById("text-input");
+  const note = { text: inputElement.value };
+  inputElement.value = "";
+
+  const response = await fetch("/note", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(note)
+  })
+
+  if (response) {
+    createNoteElement(note)
+  } 
+};
+
 (async () => {
   // Fetch existing notes and mount them on page
   const response = await fetch("/notes");
@@ -19,21 +38,11 @@ const createNoteElement = (note) => {
   const addButtonElement = document.getElementById("add-button");
   const inputElement = document.getElementById("text-input");
 
-  addButtonElement.addEventListener("click", (async () => {
-    const note = { text: inputElement.value };
-    inputElement.value = "";
-
-    const response = await fetch("/note", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(note)
-    })
-
-    if (response) {
-      createNoteElement(note)
-    }    
-  }));
+  addButtonElement.addEventListener("click", submitNoteHandler);
+  
+  inputElement.addEventListener("keyup", async ({ key }) => {
+    if (key === "Enter") {
+      await submitNoteHandler();
+    }
+  })
 })();
