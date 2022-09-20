@@ -36,5 +36,17 @@ docker run \
 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
 -e ME_CONFIG_MONGODB_ADMINPASSWORD=password \
 -e ME_CONFIG_MONGODB_SERVER=mongodb \
--d mongo-express
+
+**Create app image and run app container**
+
+```console
+docker build -t app .
+```
+
+```console
+docker run -it \
+-p 3000:3000 \
+--name app \
+--net mongo-network \
+app
 ```
