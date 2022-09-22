@@ -1,4 +1,4 @@
-# Docker Commands
+# Docker Commands (for local development)
 
 **Create network**
 
@@ -17,6 +17,7 @@ docker run -d \
 -p 27017:27001 \
 --name mongodb \
 --net mongo-network \
+-v mongo-data:/data/db \
 -e MONGO_INITDB_ROOT_USERNAME=admin \
 -e MONGO_INITDB_ROOT_PASSWORD=password \
 mongo
