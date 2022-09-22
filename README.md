@@ -4,4 +4,4 @@ A simple project demonstrating how to use Docker to run a Node.js application an
 
 Useful commands for local development can be found in [`docker-commands.md`](./docker-commands.md).
 
-Also, [`docker-compose.yaml`](./docker-compose.yml) is provided for easy run of multi-container Docker application.
+Also, [`docker-compose.yaml`](./docker-compose.yml) is provided for an easy run of the multi-container Docker application.
